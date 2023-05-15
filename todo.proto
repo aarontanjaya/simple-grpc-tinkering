@@ -3,6 +3,8 @@ syntax = "proto3";
 
 package todoPackage;
 
+option go_package = "./todoProto";
+
 // define service
 service Todo{
     // define method
