@@ -1,0 +1,24 @@
+// define version
+syntax = "proto3";
+
+package todoPackage;
+
+// define service
+service Todo{
+    // define method
+    rpc createTodo( TodoItem ) returns ( TodoItem );
+    rpc readTodos(void) returns (TodoItems);
+}
+
+// need to define void
+message void {}
+
+message TodoItem {
+    int32 id = 1;
+    string text = 2;
+}
+
+// use repeated for array
+message TodoItems{
+    repeated TodoItem items = 1;
+}
