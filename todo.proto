@@ -10,6 +10,7 @@ service Todo{
     // define method
     rpc createTodo( TodoItem ) returns ( TodoItem );
     rpc readTodos(void) returns (TodoItems);
+    rpc readTodosStream(void) returns (stream TodoItem);
 }
 
 // need to define void
