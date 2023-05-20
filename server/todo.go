@@ -28,3 +28,15 @@ func (UserServer) ReadTodos(ctx context.Context, void *pb.Void) (*pb.TodoItems, 
 	log.Println("read todos called")
 	return localStorage, nil
 }
+
+func (UserServer) ReadTodosStream(void *pb.Void, stream pb.Todo_ReadTodosStreamServer) error {
+	if localStorage.Items == nil {
+		return nil
+	}
+
+	for _, item := range localStorage.Items {
+		stream.Send(item)
+	}
+
+	return nil
+}
